@@ -1,0 +1,12 @@
+{:deps {org.clojure/clojure {:mvn/version "1.10.0"}
+        org.clojure/math.numeric-tower {:mvn/version "0.0.4"}
+        clj-time/clj-time {:mvn/version "0.15.2"}
+        com.taoensso/tufte {:mvn/version "2.2.0"}
+;;        sigmund/sigmund {:mvn/version "0.1.1"}
+        }
+
+ :aliases {:dev {:extra-paths ["dev"]}
+           :depstar
+           {:extra-deps {seancorfield/depstar {:mvn/version "0.1.6"}}
+            :main-opts ["-m" "hf.depstar.uberjar" "target/profiler.jar"]}}
+ }
