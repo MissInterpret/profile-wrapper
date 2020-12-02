@@ -25,8 +25,11 @@
   ;; Utils ----------------------------------------
   ;;
 
-(defn log [context key]
-  #_(log/info key (:event context)))
+(defn log [filename & msgs]
+  (let [output (str (Date.) ": " (apply str msgs) "\n")]
+    (if (.exists (io/file filename))
+      (spit filename output :append true)
+      (spit filename output))))
 
 (defn nano-to-milli [nano]
   (math/round (/ (float nano) 1000000)))
