@@ -68,17 +68,6 @@
 (defn tufte-max [stats key]
   (tufte-arg @stats key :max))
 
-(defn system-mem-available
-  "The amount of memory in MB of memory available to the
-   system."
-  []
-  (let [runtime (Runtime/getRuntime)
-        cur-free (-> runtime (.freeMemory))
-        total-alloc (-> runtime (.totalMemory))
-        used (- total-alloc cur-free)
-        max (-> runtime (.maxMemory))]
-    (float (/ (- max used) bytes-in-mb))))
-
 (defn system-measurement []
   (let [runtime (Runtime/getRuntime)
         cur-free (-> runtime (.freeMemory))
